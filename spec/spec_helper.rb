@@ -18,3 +18,29 @@ Spec::Runner.configure do |config|
   config.include(Merb::Test::RouteHelper)
   config.include(Merb::Test::ControllerHelper)
 end
+
+COUCHHOST = "http://localhost:5984"
+TESTDB = 'comments-test'
+
+def reset_test_db!
+  cr = CouchRest.new(COUCHHOST)
+  db = cr.database(TESTDB)
+  db.delete! rescue nil
+  db = cr.create_db(TESTDB) rescue nin
+  db
+end
+
+def valid_comment_data
+  {
+    :uri => uri,
+    :body => "great site"
+  }
+end
+
+def uri
+  "http://blog.com/2008/08/post.html"
+end
+
+def escaped_uri
+  URI.escape(uri, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+end

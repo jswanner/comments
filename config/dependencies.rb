@@ -1,4 +1,5 @@
 dependency "jchris-couchrest", :require_as => "couchrest"
+require "uri"
 
 # dependencies are generated using a strict version, don't forget to edit the dependency versions when upgrading.
 merb_gems_version = "1.0.2"
