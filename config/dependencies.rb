@@ -2,7 +2,7 @@ dependency "jchris-couchrest", :require_as => "couchrest"
 require "uri"
 
 # dependencies are generated using a strict version, don't forget to edit the dependency versions when upgrading.
-merb_gems_version = "1.0.2"
+merb_gems_version = "1.0.6.1"
 
 # For more information about each component, please read http://wiki.merbivore.com/faqs/merb_components
 dependency "merb-action-args", merb_gems_version
